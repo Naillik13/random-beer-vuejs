@@ -1,6 +1,8 @@
 <template>
   <nav-bar/>
-  <router-view/>
+  <div class="sm:pl-16">
+    <router-view/>
+  </div>
 </template>
 <script>
 
