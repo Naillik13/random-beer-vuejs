@@ -1,7 +1,8 @@
 <template>
-    <div class="flex justify-center flex-col p-16">
+    <h1 class="text-green-500 font-bold text-2xl p-8 text-center pt-16">~ Find a beer ~</h1>
+    <div class="flex justify-center flex-col pb-0">
         <SearchForm :value="beerName" @update="updateBeerName" @search="retrieveBeers"/>
-        <RangeSlider :minVal="minAbv" :maxVal="maxAbv" min="0" max="56" unit="°" @update="updateAbvData" @change="retrieveBeers"/>
+        <RangeSlider :minVal="minAbv" :maxVal="maxAbv" :min="0" :max="56" unit="°" @update="updateAbvData" @change="retrieveBeers"/>
     </div>
     <div v-if="beers.length > 0" class="flex flex-wrap justify-center p-16">
         <BeerCard v-for="beer in beers"  :key="beer.id" :beer="beer"/>
@@ -20,7 +21,7 @@
                 beers: [],
                 beerName: "",
                 minAbv: 0,
-                maxAbv: 18
+                maxAbv: 56
             }
         },
         mounted () {

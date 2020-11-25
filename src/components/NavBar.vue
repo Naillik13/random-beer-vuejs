@@ -1,5 +1,5 @@
 <template>
-    <div class="flex sm:flex-col bg-white border-r border-gray-200 justify-center items-center h-16 sm:h-full sm:w-16 w-full fixed left-0 bottom-0 shadow border-t">
+    <div class="z-50 flex sm:flex-col bg-white border-r border-gray-200 justify-center items-center h-16 sm:h-full sm:w-16 w-full fixed left-0 bottom-0 shadow border-t">
         <router-link to="/search" class="nav-link">
             <font-awesome-icon icon="search"/>
         </router-link>

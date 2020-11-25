@@ -1,4 +1,5 @@
 <template>
+    <h1 class="text-green-500 font-bold text-2xl pt-16 text-center">~ The whole list ~</h1>
     <div class="flex flex-wrap justify-center p-16">
         <BeerCard v-for="beer in beers"  :key="beer.id" :beer="beer"/>
     </div>

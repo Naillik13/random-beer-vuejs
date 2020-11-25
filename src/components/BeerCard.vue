@@ -1,7 +1,8 @@
 <template>
     <div
-        class="bg-white flex w-64 rounded-2xl overflow-hidden shadow-lg items-center flex-col m-4 p-4 border border-gray-100"
+        class="relative bg-white flex w-64 rounded-2xl overflow-hidden shadow-lg items-center flex-col m-4 p-4 border border-gray-100"
     >
+        <FavoriteButton :beer="beer" />
         <img
             class="h-32 m-2"
             :src="beer.image_url ? beer.image_url : require('@/assets/images/no-image-available.png')"
@@ -26,9 +27,10 @@
 
 <script>
     import ButtonDefault from "./common/ButtonDefault";
+    import FavoriteButton from "./common/FavoriteButton";
     export default {
         name: "BeerCard",
-        components: {ButtonDefault},
+        components: {FavoriteButton, ButtonDefault},
         props:  {
             beer: {
                 type: Object,
