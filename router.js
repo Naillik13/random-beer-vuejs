@@ -3,6 +3,7 @@ import HomeView from "./src/views/HomeView";
 import BeerView from "./src/views/BeerView";
 import BeersView from "./src/views/BeersView";
 import SearchView from "./src/views/SearchView";
+import FavoritesView from "./src/views/FavoritesView";
 
 const routes = [
     {
@@ -20,6 +21,10 @@ const routes = [
     {
         path: '/search/',
         component: SearchView
+    },
+    {
+        path: '/favorites/',
+        component: FavoritesView
     },
 ];
 

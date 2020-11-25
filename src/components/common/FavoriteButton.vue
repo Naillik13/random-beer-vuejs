@@ -37,7 +37,8 @@
                     this.$store.dispatch({
                         type: 'removeBeer',
                         value: JSON.stringify(this.beerPreview)
-                    })
+                    });
+                    this.emitter.emit("remove-favorite", this.beer.id);
                 } else {
                     this.$store.dispatch({
                         type: 'addBeer',

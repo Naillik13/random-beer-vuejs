@@ -25,7 +25,7 @@ const store = createStore({
         }
     },
     getters: {
-        beers: state => state.beers,
+        beers: state => state.beers.map(jsonBeer => JSON.parse(jsonBeer)),
         isFavorite (state) {
             return beer => state.beers.indexOf(beer) !== -1
         }

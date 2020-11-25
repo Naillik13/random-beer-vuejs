@@ -11,9 +11,13 @@ import router from "../router"
 
 import store from '../store'
 
+import emitter from "../emitter";
+
 library.add(faHome, faBeer, faSearch, faHeart);
 
 const app = createApp(App);
+
+app.config.globalProperties.emitter = emitter;
 
 app.use(router);
 
