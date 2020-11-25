@@ -1,6 +1,6 @@
 <template>
     <button
-        class="rounded-full shadow p-3 m-auto w-auto uppercase text-sm"
+        class="rounded-full shadow p-3 m-auto w-auto uppercase text-sm focus:outline-none"
         :class="{'text-green-500': type && type === 'light', 'bg-green-500 text-white hover:bg-green-600': !type}"
     >
         {{ text }}

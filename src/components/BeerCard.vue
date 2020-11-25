@@ -4,7 +4,8 @@
     >
         <img
             class="h-32 m-2"
-            :src="beer.image_url"
+            :src="beer.image_url ? beer.image_url : require('@/assets/images/no-image-available.png')"
+            @error="imageLoadOnError"
             alt="Random fact image"
         />
         <div class="px-6 py-4">
@@ -37,6 +38,9 @@
         methods: {
             showDetails () {
                 this.$router.push('/beers/' + this.beer.id)
+            },
+            imageLoadOnError (e) {
+                e.target.src = ""
             }
         }
     }

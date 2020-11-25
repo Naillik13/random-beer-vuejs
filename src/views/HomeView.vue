@@ -15,6 +15,10 @@
                 :beer="beer"
                 v-if="beer"
         />
+        <EmptyCard
+            class="m-auto mt-16"
+            v-else
+        />
     </div>
 
 </template>
@@ -22,9 +26,10 @@
 <script>
     import BeerCard from "../components/BeerCard";
     import ButtonDefault from "../components/common/ButtonDefault";
+    import EmptyCard from "../components/common/EmptyCard";
     export default {
         name: "HomeView",
-        components: {ButtonDefault, BeerCard},
+        components: {EmptyCard, ButtonDefault, BeerCard},
         data () {
             return {
                 beer: null
