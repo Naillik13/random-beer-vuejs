@@ -4,7 +4,7 @@
             <FavoriteButton :beer="beer"/>
             <img
                     class="h-48 m-auto"
-                    :src="beer.image_url"
+                    :src="beer.image_url ? beer.image_url : require('@/assets/images/no-image-available.png')"
                     alt="Random fact image"
             />
             <h1 class="font-bold text-center text-2xl mb-2 text-green-500 mt-16">{{ beer.name }}</h1>
