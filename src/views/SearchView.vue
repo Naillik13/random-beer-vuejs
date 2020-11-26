@@ -10,22 +10,18 @@
     <div v-else class="text-gray-400 p-16 text-center">
         No results match your criteria...
     </div>
-    <div v-if="showLoadMore" class="p-16 pt-0 text-center">
-        <ButtonDefault
-                text="Load more..."
-                @click="retrieveBeers(true)"
-        />
-    </div>
+    <ScrollLoader :loader-disable="!showLoadMore" :loader-method="retrieveNextBeers"/>
+
 </template>
 
 <script>
     import SearchForm from "../components/common/SearchForm";
     import BeerCard from "../components/BeerCard";
     import RangeSlider from "../components/common/RangeSlider";
-    import ButtonDefault from "../components/common/ButtonDefault";
+    import ScrollLoader from "../components/ScrollLoader";
     export default {
         name: "SearchView",
-        components: {ButtonDefault, RangeSlider, BeerCard, SearchForm},
+        components: {ScrollLoader, RangeSlider, BeerCard, SearchForm},
         data () {
             return {
                 beers: [],
@@ -33,13 +29,17 @@
                 minAbv: 0,
                 maxAbv: 56,
                 showLoadMore: true,
-                page: 1
+                page: 1,
             }
         },
         mounted () {
             this.retrieveBeers(false)
         },
         methods: {
+            retrieveNextBeers () {
+                this.retrieveBeers(true)
+
+            },
             retrieveBeers (concat) {
                 if (!concat) {
                     this.page = 1

@@ -3,20 +3,16 @@
     <div class="flex flex-wrap justify-center p-16">
         <BeerCard v-for="beer in beers"  :key="beer.id" :beer="beer"/>
     </div>
-    <div v-if="showLoadMore" class="p-16 pt-0 text-center">
-        <ButtonDefault
-            text="Load more..."
-            @click="retrieveBeers"
-        />
-    </div>
+    <ScrollLoader :loader-disable="!showLoadMore" :loader-method="retrieveBeers"/>
+
 </template>
 
 <script>
     import BeerCard from "../components/BeerCard";
-    import ButtonDefault from "../components/common/ButtonDefault";
+    import ScrollLoader from "../components/ScrollLoader";
     export default {
         name: "BeersView",
-        components: {ButtonDefault, BeerCard},
+        components: {ScrollLoader, BeerCard},
         data () {
             return {
                 beers: [],
