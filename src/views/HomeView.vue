@@ -1,7 +1,7 @@
 <template>
     <div class="p-16">
         <h1 class="text-green-500 font-bold text-2xl p-4 pt-0 text-center">~ Welcome on Random Beers ~</h1>
-        <p class="text-gray-500 w-1/2 text-center m-auto">
+        <p class="text-gray-500 sm:w-1/2 text-center m-auto">
             Your new beer library. Here you can find beers of any kind, filtering by degree for example or looking for a name.
             But for now, why not start by finding a random beer?
             And may be discovering a new one!

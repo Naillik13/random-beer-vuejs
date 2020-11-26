@@ -3,16 +3,25 @@
     <div class="flex flex-wrap justify-center p-16">
         <BeerCard v-for="beer in beers"  :key="beer.id" :beer="beer"/>
     </div>
+    <div v-if="showLoadMore" class="p-16 pt-0 text-center">
+        <ButtonDefault
+            text="Load more..."
+            @click="retrieveBeers"
+        />
+    </div>
 </template>
 
 <script>
     import BeerCard from "../components/BeerCard";
+    import ButtonDefault from "../components/common/ButtonDefault";
     export default {
         name: "BeersView",
-        components: {BeerCard},
+        components: {ButtonDefault, BeerCard},
         data () {
             return {
-                beers: []
+                beers: [],
+                showLoadMore: true,
+                page: 1
             }
         },
         mounted () {
@@ -20,13 +29,14 @@
         },
         methods: {
             retrieveBeers ()  {
-                fetch('https://api.punkapi.com/v2/beers/')
+                fetch('https://api.punkapi.com/v2/beers?page=' + this.page + '&per_page=20')
                     .then((response) => response.json())
                     .then((responseJson) => {
-                        this.beers = responseJson
+                        this.beers = this.beers.concat(responseJson);
+                        this.showLoadMore = responseJson.length === 20;
+                        this.page += 1;
                     })
                     .catch((error) =>{
-                        alert("An error has occurred while fetching beers");
                         console.error(error);
                     });
             }
