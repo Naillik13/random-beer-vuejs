@@ -23,6 +23,7 @@
             },
             beerPreview () {
                 return {
+                    id: this.beer.id,
                     name: this.beer.name,
                     abv: this.beer.abv,
                     image_url: this.beer.image_url,
@@ -38,7 +39,7 @@
                         type: 'removeBeer',
                         value: JSON.stringify(this.beerPreview)
                     });
-                    this.emitter.emit("remove-favorite", this.beer.id);
+                    this.emitter.emit("remove-favorite");
                 } else {
                     this.$store.dispatch({
                         type: 'addBeer',
